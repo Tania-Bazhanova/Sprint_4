@@ -24,18 +24,15 @@ public class ScooterHomePage {
     private By accordionPanel = By.xpath(".//div[@class = 'accordion__panel']");
 
     public ScooterHomePage(WebDriver driver) {
-
         this.driver = driver;
     }
 
     public By getPageOrderButton() {
-
         return pageOrderButton;
     }
 
     // метод нажатия на кнопку Заказать в хедере
     public void clickheaderOrderButton() {
-
         driver.findElement(headerOrderButton).click();
     }
 
