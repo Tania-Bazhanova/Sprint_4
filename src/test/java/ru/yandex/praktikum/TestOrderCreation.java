@@ -3,6 +3,7 @@ package ru.yandex.praktikum;
 import POM.ClientsInfoOrderPage;
 import POM.RentInfoOrderPage;
 import POM.ScooterHomePage;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -46,11 +47,8 @@ public class TestOrderCreation {
         // Получаем текст с открывшейся модалки
         String result = driver.findElement(By.xpath(".//div[@class = 'Order_ModalHeader__3FDaJ' and text() = 'Заказ оформлен']")).getText();
 
-        Assert.assertEquals("Заказ не создан", true, result.contains(expected));
-
-        driver.quit();
+        Assert.assertTrue("Заказ не создан", result.contains(expected));
     }
-
 
     // 2 Тест создания заказа серого скутера через кнопку Заказать на домашней странице
     @Test
@@ -88,8 +86,11 @@ public class TestOrderCreation {
         // Получаем текст с открывшейся модалки
         String result = driver.findElement(By.xpath(".//div[@class = 'Order_ModalHeader__3FDaJ' and text() = 'Заказ оформлен']")).getText();
 
-        Assert.assertEquals("Заказ не создан", true, result.contains(expected));
+        Assert.assertTrue("Заказ не создан", result.contains(expected));
+    }
 
+    @After
+    public void terdown() {
         driver.quit();
     }
 }
